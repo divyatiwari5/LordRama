@@ -12,13 +12,13 @@ const LaunchRequestHandler = {
     },
     handle(handlerInput) {
         const speechText = 'Welcome to Lord Rama`s kingdom!';
-        const repromptText = 'You can ask about Rama`s wife, brothers, his birthplace, his Devotee - Hanuman, Ravana and his empire Lanka';
+        const repromptText = 'You can ask about Rama`s wife, brothers, his birthplace, his Devotee - Hanuman, Ravana and his empire Lanka, Bird Jatayu, Ravana`s sister Shurpankha';
         console.log(speechText);
         return handlerInput.responseBuilder
             .speak(speechText + repromptText)
             .reprompt(speechText + repromptText)
             .withSimpleCard(title, speechText + repromptText)
-            .getResponse();
+            .getResponse()
     }
 };
 
@@ -157,6 +157,93 @@ const RavanaHandler = {
 };
 
 /***
+ * Rama's Mother Handler
+ * @type {{canHandle(*): *, handle(*): *}}
+ */
+const RamaMotherHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'&&
+            handlerInput.requestEnvelope.request.intent.name === 'RamaMother';
+    },
+    handle(handlerInput) {
+        const speechText = 'Ram is the son of Kaushalya and Dasharath. Kaikeyi was the mother of Bharata and Sumitra was the mother of Lakshmana and Shatrughna.';
+        const repromptText = 'Ram is the son of Kaushalya and Dasharath. Kaikeyi was the mother of Bharata and Sumitra was the mother of Lakshmana and Shatrughna. ';
+        return handlerInput.responseBuilder
+            .speak(speechText )
+            .reprompt(speechText )
+            .withSimpleCard(title, speechText)
+            .withShouldEndSession(true)
+            .getResponse();
+    }
+};
+
+/***
+ * Jatayu Handler
+ * @type {{canHandle(*): *, handle(*): *}}
+ */
+const JatayuHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'&&
+            handlerInput.requestEnvelope.request.intent.name === 'Jatayu';
+    },
+    handle(handlerInput) {
+        const speechText = ' In the epic Ramayana, Jatayu was the bird who tried to prevent Ravana from carrying Sita away.';
+        const repromptText = 'In the epic Ramayana, Jatayu was the bird who tried to prevent Ravana from carrying Sita away. ';
+        return handlerInput.responseBuilder
+            .speak(speechText )
+            .reprompt(speechText )
+            .withSimpleCard(title, speechText)
+            .withShouldEndSession(true)
+            .getResponse();
+    }
+};
+
+/***
+ * Shurpankha Handler
+ * @type {{canHandle(*): *, handle(*): *}}
+ */
+const ShurpanakhaHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'&&
+            handlerInput.requestEnvelope.request.intent.name === 'Shurpanakha';
+    },
+    handle(handlerInput) {
+        const speechText = 'Shurpankha was the sister of Ravana. She was the widow of the Davana prince of the Kalkeya Danava, Vidyutjihva. To know more ask How is she related to the battle of Lanka';
+        const repromptText = 'Shurpankha was the sister of Ravana. She was the widow of the the Davana prince of the Kalkeya Danava, Vidyutjihva. To know more ask How is she related to the battle of Lanka';
+        return handlerInput.responseBuilder
+            .speak(speechText )
+            .reprompt(speechText )
+            .withSimpleCard(title, speechText)
+            .withShouldEndSession(false)
+            .getResponse();
+    }
+};
+
+/***
+ * ShurpankhaMoreDetails Handler
+ * @type {{canHandle(*): *, handle(*): *}}
+ */
+const ShurpanakhaDetailsHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'&&
+            handlerInput.requestEnvelope.request.intent.name === 'ShurpanakhaDetails';
+    },
+    handle(handlerInput) {
+        const speechText = 'According to Valmiki, she met Rama during her visit to the forests of Panchavati and wanted to marry him. ' +
+            'Rama meanwhile spurred her advances. Rejected, Shurpanakha then approached his younger brother, Lakshmana, who reacted in a similar manner. ' +
+            'The humiliated and envious Shurpanakha attacked Sita but was thwarted by Lakshmana, who cut off her nose and left ear which later on became the reason behind Battle of Lanka ';
+        const repromptText = 'According to Valmiki, she met Rama during her visit to the forests of Panchavati and wanted to marry him. ' +
+            'Rama meanwhile spurred her advances. Rejected, Shurpanakha then approached his younger brother, Lakshmana, who reacted in a similar manner. ' +
+            'The humiliated and envious Shurpanakha attacked Sita but was thwarted by Lakshmana, who cut off her nose and left ear which later on became the reason behind Battle of Lanka ';
+        return handlerInput.responseBuilder
+            .speak(speechText )
+            .reprompt(speechText)
+            .withSimpleCard(title, speechText)
+            .withShouldEndSession(true)
+            .getResponse();
+    }
+};
+/***
  * Session Ended Request Handler
  * @type {{canHandle(*): *, handle(*): *}}
  */
@@ -242,6 +329,10 @@ exports.handler = Alexa.SkillBuilders.custom()
         HanumanHandler,
         LankaHandler,
         RavanaHandler,
+        RamaMotherHandler,
+        JatayuHandler,
+        ShurpanakhaHandler,
+        ShurpanakhaDetailsHandler,
         CancelHandler,
         HelpHandler,
         SessionEndedRequestHandler,
