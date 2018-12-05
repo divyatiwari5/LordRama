@@ -208,8 +208,8 @@ const ShurpanakhaHandler = {
             handlerInput.requestEnvelope.request.intent.name === 'Shurpanakha';
     },
     handle(handlerInput) {
-        const speechText = 'Shurpankha was the sister of Ravana. She was the widow of the Davana prince of the Kalkeya Danava, Vidyutjihva. To know more ask How is she related to the battle of Lanka';
-        const repromptText = 'Shurpankha was the sister of Ravana. She was the widow of the the Davana prince of the Kalkeya Danava, Vidyutjihva. To know more ask How is she related to the battle of Lanka';
+        const speechText = 'Shurpankha was the sister of Ravana. She was the widow of the Davana prince of the Kalkeya Danava, Vidyutjihva. To know more ask How is she related to Ramayan';
+        const repromptText = 'Shurpankha was the sister of Ravana. She was the widow of the the Davana prince of the Kalkeya Danava, Vidyutjihva. To know more ask How is she related to Ramayan';
         return handlerInput.responseBuilder
             .speak(speechText )
             .reprompt(speechText )
@@ -229,12 +229,12 @@ const ShurpanakhaDetailsHandler = {
             handlerInput.requestEnvelope.request.intent.name === 'ShurpanakhaDetails';
     },
     handle(handlerInput) {
-        const speechText = 'According to Valmiki, she met Rama during her visit to the forests of Panchavati and wanted to marry him. ' +
+        const speechText = 'According to Valmiki, Shurpankaha met Rama during her visit to the forests of Panchavati and wanted to marry him. ' +
             'Rama meanwhile spurred her advances. Rejected, Shurpanakha then approached his younger brother, Lakshmana, who reacted in a similar manner. ' +
-            'The humiliated and envious Shurpanakha attacked Sita but was thwarted by Lakshmana, who cut off her nose and left ear which later on became the reason behind Battle of Lanka ';
-        const repromptText = 'According to Valmiki, she met Rama during her visit to the forests of Panchavati and wanted to marry him. ' +
+            'The humiliated and envious Shurpanakha attacked Sita but was thwarted by Lakshmana, who cut off her nose and left ear which later on became the reason behind the demise of Ravana ';
+        const repromptText = 'According to Valmiki, Shurpankha met Rama during her visit to the forests of Panchavati and wanted to marry him. ' +
             'Rama meanwhile spurred her advances. Rejected, Shurpanakha then approached his younger brother, Lakshmana, who reacted in a similar manner. ' +
-            'The humiliated and envious Shurpanakha attacked Sita but was thwarted by Lakshmana, who cut off her nose and left ear which later on became the reason behind Battle of Lanka ';
+            'The humiliated and envious Shurpanakha attacked Sita but was thwarted by Lakshmana, who cut off her nose and left ear which later on became the reason behind the demise of Ravana ';
         return handlerInput.responseBuilder
             .speak(speechText )
             .reprompt(speechText)
